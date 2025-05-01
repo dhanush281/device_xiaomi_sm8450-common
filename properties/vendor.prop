@@ -170,6 +170,9 @@ ro.surface_flinger.wcg_composition_dataspace=143261696
 ro.surface_flinger.clear_slots_with_set_layer_buffer=true
 vendor.gralloc.disable_ubwc=0
 
+# Graphics
+ro.surface_flinger.support_kernel_idle_timer=true
+
 # Incremental
 ro.incremental.enable=yes
 
