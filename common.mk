@@ -141,6 +141,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     hardware/qcom-caf/sm8450/display/config/snapdragon_color_libs_config.xml:$(TARGET_COPY_OUT_VENDOR)/etc/snapdragon_color_libs_config.xml
 
+# Dolby Vision
+$(call soong_config_set, dolby_vision, enabled, true)
+
 # DRM
 PRODUCT_PACKAGES += \
     android.hardware.drm-service.clearkey
@@ -241,6 +244,10 @@ $(call soong_config_set,lineage_health,charging_control_supports_bypass,false)
 PRODUCT_PACKAGES += \
     init.qti.media.rc \
     init.qti.media.sh
+
+# Media - Dolby vision
+PRODUCT_PACKAGES += \
+    libcodec2_hidl_shim.vendor
 
 # Network
 PRODUCT_COPY_FILES += \
