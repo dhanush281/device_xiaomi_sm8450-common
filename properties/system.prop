@@ -22,3 +22,11 @@ persist.vendor.sensors.enable.mag_filter=true
 
 # WiFi display
 persist.debug.wfd.enable=1
+
+# HWUI
+debug.hwui.renderer=skiagl
+debug.renderengine.backend=skiagl
+debug.hwui.use_vulkan=false
+
+persist.sys.sf.native_mode=1
+persist.sys.sf.color_mode=1
