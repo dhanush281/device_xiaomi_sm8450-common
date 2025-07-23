@@ -117,8 +117,24 @@ on property:sys.boot_completed=1
     # Set thermal mode to mgame
     write /sys/devices/virtual/thermal/thermal_message/sconfig 20
 
-    # Dynamically set IRQ affinity for KGSL and DRM
-    exec u:r:vendor_qti_init_shell:s0 -- /vendor/bin/init.xiaomi_sm8450.sh
+    # Kill WALT CPU input boost
+    write /proc/sys/walt/input_boost/input_boost_freq "0 0 0 0 0 0 0"
+    write /proc/sys/walt/input_boost/input_boost_ms 0
+
+    # Configure uclamp
+    write /dev/cpuctl/background/cpu.uclamp.max 60
+    write /dev/cpuctl/system-background/cpu.uclamp.max 70
+    write /dev/cpuctl/dex2oat/cpu.uclamp.max 60
+
+on property:vendor.post_boot.parsed=1
+    # Set restricted cpuset to the same CPUs as system-background
+    copy /dev/cpuset/system-background/cpus /dev/cpuset/restricted/cpus
+
+    # Set background cpuset
+    write /dev/cpuset/background/cpus 0-1
+
+    # Setup foreground cpuset for display composer.
+    write /dev/cpuset/foreground/cpus 0-6
 
 on property:persist.sys.xtra-daemon.enabled=*
     restart loc_launcher
