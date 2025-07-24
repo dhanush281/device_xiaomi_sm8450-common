@@ -20,6 +20,10 @@ from extract_utils.main import (
 
 namespace_imports = [
     'device/xiaomi/sm8450-common',
+    'hardware/google/interfaces',
+    'hardware/google/pixel',
+    'hardware/lineage/interfaces/power-libperfmgr',
+    'hardware/qcom-caf/common/libqti-perfd-client',
     'hardware/qcom-caf/sm8450',
     'hardware/qcom-caf/wlan',
     'hardware/xiaomi',
