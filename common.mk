@@ -235,6 +235,11 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.opengles.deqp.level-2021-03-01.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.opengles.deqp.level.xml \
     frameworks/native/data/etc/android.software.vulkan.deqp.level-2021-03-01.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.vulkan.deqp.level.xml
 
+# Enable adpf cpu hint session for SurfaceFlinger and HWUI
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
+    debug.sf.enable_adpf_cpu_hint=true \
+    debug.hwui.use_hint_manager=true
+
 # Health
 PRODUCT_PACKAGES += \
     android.hardware.health-service.qti \
