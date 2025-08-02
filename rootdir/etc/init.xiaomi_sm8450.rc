@@ -117,10 +117,6 @@ on property:sys.boot_completed=1
     # Set thermal mode to mgame
     write /sys/devices/virtual/thermal/thermal_message/sconfig 20
 
-    # Kill WALT CPU input boost
-    write /proc/sys/walt/input_boost/input_boost_freq "0 0 0 0 0 0 0"
-    write /proc/sys/walt/input_boost/input_boost_ms 0
-
     # Configure uclamp
     write /dev/cpuctl/background/cpu.uclamp.max 60
     write /dev/cpuctl/system-background/cpu.uclamp.max 70
