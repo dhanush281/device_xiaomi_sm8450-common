@@ -13,6 +13,9 @@ media.stagefright.thumbnail.prefer_hw_codecs=true
 # QTI
 ro.vendor.qti.va_aosp.support=1
 
+# LMK
+ro.config.low_ram=false
+
 # Radio
 ril.subscription.types=NV,RUIM
 persist.vendor.vonr_setting_support=1
